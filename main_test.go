@@ -8,6 +8,8 @@ import (
 
 func TestGetCred(t *testing.T) {
 	var a string = "abc123"
-	out, _ := getCred("app.terraform.io")
-	assert.Equal(t, a, out, "The secrets should match")
+	out, err := getCred("app.terraform.i")
+	if assert.NotNil(t, err) {
+		assert.Equal(t, a, out, "The secrets should match")
+	}
 }
